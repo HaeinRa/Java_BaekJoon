@@ -1,5 +1,3 @@
-import java.io.*;
-
 /**
  * @
  * @author Rahaein
@@ -38,26 +36,50 @@ ver4. 배열의 크기를 미리 정해놓지 않고 입력받은 수만큼 반�
 ]
 +
 [ ver2.
-	모두 입력받고 생각하자.
+	모두 입력받고 생각하기 
 ]
 
-이렇게 가보자.
 
  */
 
-public class OXQuiz {
+import java.util.Scanner;
 
-	public static void main(String[] args) throws NumberFormatException, IOException{
-		BufferedReader sc = new BufferedReader(new InputStreamReader(System.in));
+public class OXQuiz {
+	
+	public static int score(String OX)
+	{
+		char[] oxString = OX.toCharArray();
+		int score = 0, finalscore = 0;
 		
-		int [][] array = null;
-		int numArrays;
-		int score;
+		for(int i=0; i<oxString.length; i++)
+		{
+			if(oxString[i] == 'O')
+			{
+				score++;
+				//System.out.print("점수추가 : "+score+"\n");
+				finalscore += score;
+			}
+			else
+			{
+				score = 0;
+				//System.out.print("점수리셋 : "+score+"\n");
+				//System.out.print("파이널 점수 : "+finalscore+"\n");
+			}
+		}
 		
-		System.out.println("테스트 개수 입력 : ");
-		numArrays = Integer.parseInt(sc.readLine());
+		return finalscore;
+	}
+
+	public static void main(String[] args){
 		
-		array = new int[numArrays][]; 
+		Scanner sc = new Scanner(System.in);
+		int numCase = sc.nextInt();
 		
+		
+		for(int i=0; i<numCase; i++)
+		{
+			String OX = sc.next();
+			System.out.print(score(OX)+"\n");
+		}
 	}
 }
