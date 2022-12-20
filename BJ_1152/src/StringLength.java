@@ -16,14 +16,9 @@ import java.util.Scanner;
 public class StringLength {
 	public static int numberOfWord(String s)
 	{
-		//int numOfWord = 0;
-		String str = s.trim();
-		String[] strArray = str.split(" ");
-		
-//		for(int i=0; i<strArray.length; i++)
-//		{
-//			System.out.println(strArray[i]);
-//		}
+		if(s.isEmpty() || s.isBlank()) return 0; // 아예 입력 안 하거나 띄어쓰기만 있으면 0 반환
+		String str = s.trim(); // 앞 뒤 공백 없애기
+		String[] strArray = str.split(" "); // 공백으로 단어 분리
 		return strArray.length;
 	}
 
