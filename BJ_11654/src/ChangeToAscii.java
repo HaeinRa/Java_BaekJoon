@@ -11,7 +11,7 @@
 
 import java.util.Scanner;
 
-public class changeToAscii {
+public class ChangeToAscii {
 	
 	public static int changeIt(char s){
 		int asciinum = (int)s;
